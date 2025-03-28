@@ -9,7 +9,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ThumbUp
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -61,8 +61,8 @@ fun MainScreen(
                         val icon: ImageVector = when (category.lowercase()) {
                             "cute" -> Icons.Filled.Favorite
                             "cool" -> Icons.Filled.Star
-                            "sad" -> Icons.Filled.ThumbUp
-                            else -> Icons.Filled.ThumbUp
+                            "sad" -> Icons.Filled.Warning
+                            else -> Icons.Filled.Warning
                         }
 
                         Icon(
