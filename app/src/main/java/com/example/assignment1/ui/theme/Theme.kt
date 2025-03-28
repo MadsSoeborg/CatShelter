@@ -87,10 +87,33 @@ fun Assignment1Theme(
     colorScheme: ColorScheme = getCategoryColorScheme(category = null),
     content: @Composable () -> Unit
 ) {
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+
+            val statusBarColor = colorScheme.primary
+
+            // Set the status bar background color
+            // Only does something on Android
+            @Suppress("DEPRECATION")
+            window.statusBarColor = statusBarColor.toArgb()
+
+            // Set the appearance of the status bar icons
+            // based on the luminance of the background color
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars =
+                statusBarColor.luminance() < 0.5f
+        }
+    }
+
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
         shapes = Shapes,
         content = content
     )
+}
+
+fun Color.luminance(): Float {
+    return (0.2126f * red + 0.7152f * green + 0.0722f * blue)
 }
