@@ -1,20 +1,20 @@
 package com.example.assignment1.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.assignment1.data.BookRepository
+import com.example.assignment1.data.CatRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class MainViewModel : ViewModel() {
-    private val _genres = MutableStateFlow<List<String>>(emptyList())
-    val genres: StateFlow<List<String>> = _genres.asStateFlow()
+    private val _categories = MutableStateFlow<List<String>>(emptyList())
+    val categories: StateFlow<List<String>> = _categories.asStateFlow()
 
     init {
-        loadGenres()
+        loadCategories()
     }
 
-    private fun loadGenres() {
-        _genres.value = BookRepository.getAllGenres()
+    private fun loadCategories() {
+        _categories.value = CatRepository.getAllCategories()
     }
 }

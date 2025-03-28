@@ -11,20 +11,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.assignment1.data.Book
+import com.example.assignment1.data.Cat
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BookListScreen(
-    genre: String?,
-    books: List<Book>,
-    onBookSelected: (String) -> Unit,
+fun CatListScreen(
+    category: String?,
+    cats: List<Cat>,
+    onCatSelected: (String) -> Unit,
     onNavigateBack: () -> Unit
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(genre ?: "Books") },
+                title = { Text(category ?: "Cats") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
@@ -33,12 +33,12 @@ fun BookListScreen(
             )
         }
     ) { paddingValues ->
-        if (books.isEmpty()) {
+        if (cats.isEmpty()) {
             Box(
                 modifier = Modifier.fillMaxSize().padding(paddingValues),
                 contentAlignment = Alignment.Center
             ) {
-                Text("No books found in this genre.")
+                Text("No cats found in this category.")
             }
         } else {
             LazyColumn(
@@ -48,8 +48,8 @@ fun BookListScreen(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                items(books, key = { it.id }) { book ->
-                    BookListItem(book = book, onClick = { onBookSelected(book.id) })
+                items(cats, key = { it.id }) { cat ->
+                    CatListItem(cat = cat, onClick = { onCatSelected(cat.id) })
                 }
             }
         }
@@ -57,7 +57,7 @@ fun BookListScreen(
 }
 
 @Composable
-fun BookListItem(book: Book, onClick: () -> Unit) {
+fun CatListItem(cat: Cat, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -65,9 +65,9 @@ fun BookListItem(book: Book, onClick: () -> Unit) {
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = book.title, style = MaterialTheme.typography.headlineSmall)
+            Text(text = cat.name, style = MaterialTheme.typography.headlineSmall)
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = "by ${book.author}", style = MaterialTheme.typography.bodyMedium)
+            Text(text = "${cat.age} - ${cat.gender}", style = MaterialTheme.typography.bodyMedium)
         }
     }
 }

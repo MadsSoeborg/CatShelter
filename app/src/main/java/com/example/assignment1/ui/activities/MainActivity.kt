@@ -19,21 +19,21 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Assignment1Theme {
-                val genres by viewModel.genres.collectAsState()
+                val categories by viewModel.categories.collectAsState()
 
                 MainScreen(
-                    genres = genres,
-                    onGenreSelected = { selectedGenre ->
-                        navigateToBookList(selectedGenre)
+                    categories = categories,
+                    onCategorySelected = { selectedCategory ->
+                        navigateToCatList(selectedCategory)
                     }
                 )
             }
         }
     }
 
-    private fun navigateToBookList(genre: String) {
-        val intent = Intent(this, BookListActivity::class.java).apply {
-            putExtra(BookListActivity.EXTRA_GENRE, genre)
+    private fun navigateToCatList(category: String) {
+        val intent = Intent(this, CatListActivity::class.java).apply {
+            putExtra(CatListActivity.EXTRA_CATEGORY, category)
         }
         startActivity(intent)
     }

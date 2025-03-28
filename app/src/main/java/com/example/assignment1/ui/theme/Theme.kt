@@ -35,20 +35,20 @@ private val LightColorScheme = lightColorScheme(
 
 // Genre-specific light color schemes
 
-private val RomanceLightColorScheme = lightColorScheme(
-    primary = RomancePrimary,
+private val CuteLightColorScheme = lightColorScheme(
+    primary = CutePrimary,
     secondary = Pink40,
     tertiary = Pink80,
-    background = RomancePink,
-    surface = RomanceSurface,
+    background = CutePink,
+    surface = CuteSurface,
     onSurface = Color.Black
 )
 
-private val SciFiLightColorScheme = lightColorScheme(
-    primary = SciFiPrimary,
+private val CoolLightColorScheme = lightColorScheme(
+    primary = CoolPrimary,
     secondary = PurpleGrey40,
     tertiary = Purple80,
-    background = SciFiSpaceGrey,
+    background = CoolSpaceGrey,
     surface = Color(0xFFA1A4B9),
     onSurface = Color.Black
 )
@@ -64,17 +64,17 @@ private val ClassicLightColorScheme = lightColorScheme(
 
 // Composable function to determine the ColorScheme based on the genre
 @Composable
-fun getGenreColorScheme(genre: String?, darkTheme: Boolean = isSystemInDarkTheme()): ColorScheme {
-    val targetGenre = genre?.lowercase()
+fun getCategoryColorScheme(genre: String?, darkTheme: Boolean = isSystemInDarkTheme()): ColorScheme {
+    val targetCategory = genre?.lowercase()
 
     return if (darkTheme) {
-        when (targetGenre) {
+        when (targetCategory) {
             else -> DarkColorScheme
         }
     } else {
-        when (targetGenre) {
-            "romance" -> RomanceLightColorScheme
-            "sci-fi" -> SciFiLightColorScheme
+        when (targetCategory) {
+            "Cute" -> CuteLightColorScheme
+            "sci-fi" -> CoolLightColorScheme
             "classic" -> ClassicLightColorScheme
             else -> LightColorScheme
         }
@@ -84,7 +84,7 @@ fun getGenreColorScheme(genre: String?, darkTheme: Boolean = isSystemInDarkTheme
 // Main Assignment1Theme composable function
 @Composable
 fun Assignment1Theme(
-    colorScheme: ColorScheme = getGenreColorScheme(genre = null),
+    colorScheme: ColorScheme = getCategoryColorScheme(genre = null),
     content: @Composable () -> Unit
 ) {
     val view = LocalView.current

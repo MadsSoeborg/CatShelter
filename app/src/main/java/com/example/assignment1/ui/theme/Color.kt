@@ -12,12 +12,12 @@ val Pink40 = Color(0xFF7D5260)
 
 val RusticBeige = Color(0xFFEEE0D0)
 
-val RomancePink = Color(0xFFFFE0E6)
-val SciFiSpaceGrey = Color(0xFF4A4E69)
+val CutePink = Color(0xFFFFE0E6)
+val CoolSpaceGrey = Color(0xFF4A4E69)
 val ClassicCream = Color(0xFFFFF8DC)
 
-val RomancePrimary = Color(0xFFD81B60)
-val SciFiPrimary = Color(0xFF00BCD4)
+val CutePrimary = Color(0xFFD81B60)
+val CoolPrimary = Color(0xFF00BCD4)
 val ClassicPrimary = Color(0xFF8B4513)
 
-val RomanceSurface = Color(0xFFE794A7)
+val CuteSurface = Color(0xFFE794A7)

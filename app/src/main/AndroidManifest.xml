@@ -24,16 +24,16 @@
         </activity>
 
         <activity
-            android:name=".ui.activities.BookListActivity"
+            android:name=".ui.activities.CatListActivity"
             android:exported="false"
-            android:label="Book List"
+            android:label="Cat List"
             android:theme="@style/Theme.Assignment1">
         </activity>
 
         <activity
-            android:name=".ui.activities.BookDetailActivity"
+            android:name=".ui.activities.CatDetailActivity"
             android:exported="false"
-            android:label="Book Details"
+            android:label="Cat Details"
             android:theme="@style/Theme.Assignment1">
         </activity>
 

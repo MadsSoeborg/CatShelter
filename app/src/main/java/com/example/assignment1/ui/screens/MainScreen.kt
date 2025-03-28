@@ -23,12 +23,12 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
-    genres: List<String>,
-    onGenreSelected: (String) -> Unit
+    categories: List<String>,
+    onCategorySelected: (String) -> Unit
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Book Genres") })
+            TopAppBar(title = { Text("Cat Categories") })
         }
     ) { paddingValues ->
         Column(
@@ -40,18 +40,16 @@ fun MainScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            Text("Select a Genre:", style = MaterialTheme.typography.headlineSmall)
+            Text("Select a Category:", style = MaterialTheme.typography.headlineSmall)
             Spacer(modifier = Modifier.height(16.dp))
 
-            genres.forEach { genre ->
+            categories.forEach { category ->
                 Button(
-                    onClick = { onGenreSelected(genre) },
+                    onClick = { onCategorySelected(category) },
                     modifier = Modifier.fillMaxWidth(0.6f),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFF8B4513),
-                        contentColor = Color.White,
-                        disabledContainerColor = Color.Gray,
-                        disabledContentColor = Color.DarkGray
+                        contentColor = Color.White
                     )
                 ) {
                     Row(
@@ -59,24 +57,24 @@ fun MainScreen(
                         horizontalArrangement = Arrangement.Start,
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        // Determine which icon to use based on the genre
-                        val icon: ImageVector = when (genre.lowercase()) {
-                            "romance" -> Icons.Filled.Favorite
-                            "sci-fi" -> Icons.Filled.Star
-                            "classic" -> Icons.Filled.ThumbUp
-                            else -> Icons.Filled.ThumbUp // Default icon fallback
+                        // Determine icon based on the category
+                        val icon: ImageVector = when (category.lowercase()) {
+                            "cute" -> Icons.Filled.Favorite
+                            "cool" -> Icons.Filled.Star
+                            "calm" -> Icons.Filled.ThumbUp
+                            else -> Icons.Filled.ThumbUp
                         }
 
                         Icon(
                             imageVector = icon,
-                            contentDescription = null,
+                            contentDescription = "$category Category Icon",
                             modifier = Modifier.size(ButtonDefaults.IconSize),
                             tint = Color.White
                         )
 
                         Spacer(Modifier.width(ButtonDefaults.IconSpacing))
 
-                        Text(genre)
+                        Text(category)
                     }
                 }
             }
