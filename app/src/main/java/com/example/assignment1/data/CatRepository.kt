@@ -4,6 +4,8 @@ import com.example.assignment1.R
 
 object CatRepository {
 
+    // Cats and their info are taken from Dyrenes Beskyttelse
+    // Descriptions have been run through Google Translate
     private val cats = listOf(
         Cat("c1", "Maximus", "Cute", "2 years", "Male", 3.0, "Maximus is a calm, gentle and loving cat who enjoys contact and cuddles, and who likes to give his people cuddles. He is curious and inquisitive, but always at a quiet and calm pace, taking in the world with a calm gaze.", R.drawable.maximus),
         Cat("c2", "Johanne", "Cool", "3 years", "Female", 3.6, "Johanne has been found as a stray. She was found with Frida. She is very cautious and a little nervous here at the shelter, but otherwise seems like a sweet and calm cat. She is looking for a quiet home where she can live as an indoor and outdoor cat.", R.drawable.johanne),

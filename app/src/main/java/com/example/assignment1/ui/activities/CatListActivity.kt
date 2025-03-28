@@ -41,7 +41,7 @@ class CatListActivity : ComponentActivity() {
                         navigateToCatDetail(selectedCatId)
                     },
                     onNavigateBack = {
-                        finish()
+                        finish() // Back to MainActivity
                     }
                 )
             }
