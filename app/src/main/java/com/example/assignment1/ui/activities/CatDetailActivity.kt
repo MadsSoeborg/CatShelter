@@ -9,7 +9,7 @@ import androidx.compose.runtime.getValue
 import com.example.assignment1.ui.screens.CatDetailScreen
 import com.example.assignment1.ui.theme.Assignment1Theme
 import com.example.assignment1.ui.theme.getCategoryColorScheme
-import com.example.assignment1.viewmodel.CatDetailViewModel // Use CatDetailViewModel
+import com.example.assignment1.viewmodel.CatDetailViewModel
 
 class CatDetailActivity : ComponentActivity() {
 
