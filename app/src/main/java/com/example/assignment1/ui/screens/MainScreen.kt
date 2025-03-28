@@ -28,7 +28,7 @@ fun MainScreen(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Cat Categories") })
+            TopAppBar(title = { Text("Cat Shelter") })
         }
     ) { paddingValues ->
         Column(
@@ -40,7 +40,7 @@ fun MainScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            Text("Select a Category:", style = MaterialTheme.typography.headlineSmall)
+            Text("Choose a CATegory:", style = MaterialTheme.typography.headlineSmall)
             Spacer(modifier = Modifier.height(16.dp))
 
             categories.forEach { category ->
@@ -61,7 +61,7 @@ fun MainScreen(
                         val icon: ImageVector = when (category.lowercase()) {
                             "cute" -> Icons.Filled.Favorite
                             "cool" -> Icons.Filled.Star
-                            "calm" -> Icons.Filled.ThumbUp
+                            "sad" -> Icons.Filled.ThumbUp
                             else -> Icons.Filled.ThumbUp
                         }
 

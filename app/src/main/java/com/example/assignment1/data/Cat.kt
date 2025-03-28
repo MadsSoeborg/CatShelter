@@ -8,6 +8,7 @@ data class Cat(
     val category: String,
     val age: String,
     val gender: String,
+    val weight: Double,
     val description: String,
     @DrawableRes val imageResId: Int
 )

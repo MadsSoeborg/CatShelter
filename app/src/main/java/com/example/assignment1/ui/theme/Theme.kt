@@ -33,7 +33,7 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color.Black
 )
 
-// Genre-specific light color schemes
+// Category-specific light color schemes
 
 private val CuteLightColorScheme = lightColorScheme(
     primary = CutePrimary,
@@ -62,10 +62,10 @@ private val ClassicLightColorScheme = lightColorScheme(
     onSurface = Color.Black
 )
 
-// Composable function to determine the ColorScheme based on the genre
+// Composable function to determine the ColorScheme based on the category
 @Composable
-fun getCategoryColorScheme(genre: String?, darkTheme: Boolean = isSystemInDarkTheme()): ColorScheme {
-    val targetCategory = genre?.lowercase()
+fun getCategoryColorScheme(category: String?, darkTheme: Boolean = isSystemInDarkTheme()): ColorScheme {
+    val targetCategory = category?.lowercase()
 
     return if (darkTheme) {
         when (targetCategory) {
@@ -73,9 +73,9 @@ fun getCategoryColorScheme(genre: String?, darkTheme: Boolean = isSystemInDarkTh
         }
     } else {
         when (targetCategory) {
-            "Cute" -> CuteLightColorScheme
-            "sci-fi" -> CoolLightColorScheme
-            "classic" -> ClassicLightColorScheme
+            "cute" -> CuteLightColorScheme
+            "cool" -> CoolLightColorScheme
+            "sad" -> ClassicLightColorScheme
             else -> LightColorScheme
         }
     }
@@ -84,7 +84,7 @@ fun getCategoryColorScheme(genre: String?, darkTheme: Boolean = isSystemInDarkTh
 // Main Assignment1Theme composable function
 @Composable
 fun Assignment1Theme(
-    colorScheme: ColorScheme = getCategoryColorScheme(genre = null),
+    colorScheme: ColorScheme = getCategoryColorScheme(category = null),
     content: @Composable () -> Unit
 ) {
     val view = LocalView.current
